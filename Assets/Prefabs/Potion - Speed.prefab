@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6442265867211020990}
   - component: {fileID: 6442265867211020991}
   - component: {fileID: 6442265867211020986}
+  - component: {fileID: 8412163203675472430}
   m_Layer: 0
   m_Name: Potion - Speed
   m_TagString: Untagged
@@ -163,3 +164,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionType: 0
   potionModAmount: 2
+--- !u!114 &8412163203675472430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442265867211020988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810e8289f14c1e5489ffeb426a469636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingMax: 1
+  floatingDir: 0.2
