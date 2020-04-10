@@ -32,6 +32,10 @@ public class CharacterController2D : MonoBehaviour
 
 	public float m_JumpForceMod = 0f;
 
+	private float hurtForce = 30f;
+
+	public Animator animator;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -131,6 +135,31 @@ public class CharacterController2D : MonoBehaviour
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce + m_JumpForceMod));
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag == "Enemy")
+		{
+			if (collision.gameObject.transform.position.y < this.transform.position.y)
+			{
+				Destroy(collision.gameObject);
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce + m_JumpForceMod));
+			}
+			else
+			{
+				if (collision.gameObject.transform.position.x > this.transform.position.x)
+				{
+					m_Rigidbody2D.velocity = new Vector2(-hurtForce, m_Rigidbody2D.velocity.y);
+					animator.SetBool("IsHurt", true);
+				}
+				else 
+				{
+					m_Rigidbody2D.velocity = new Vector2(-hurtForce, m_Rigidbody2D.velocity.y);
+					animator.SetBool("IsHurt", true);
+				}
+			}
 		}
 	}
 
