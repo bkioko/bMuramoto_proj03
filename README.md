@@ -1,2 +1,0 @@
-# bMuramoto_proj03
- 
