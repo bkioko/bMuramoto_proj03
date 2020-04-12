@@ -34,8 +34,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private float hurtForce = 30f;
 
-	public Animator animator;
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -152,12 +150,10 @@ public class CharacterController2D : MonoBehaviour
 				if (collision.gameObject.transform.position.x > this.transform.position.x)
 				{
 					m_Rigidbody2D.velocity = new Vector2(-hurtForce, m_Rigidbody2D.velocity.y);
-					animator.SetBool("IsHurt", true);
 				}
 				else 
 				{
 					m_Rigidbody2D.velocity = new Vector2(-hurtForce, m_Rigidbody2D.velocity.y);
-					animator.SetBool("IsHurt", true);
 				}
 			}
 		}
